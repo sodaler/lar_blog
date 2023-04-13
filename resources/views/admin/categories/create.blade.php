@@ -27,11 +27,15 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-12">
-                        <form action="#" method="POST" class="w-25">
+                        <form action="{{ route('admin.category.store') }}" method="POST" class="w-25">
+                            @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Название категории">
+                                <input type="text" class="form-control" name="title" placeholder="Название категории">
+                                @error('title')
+                                    <div class="text-danger">Поле необходимо заполнить</div>
+                                @enderror
                             </div>
-                           <input type="submit" class="btn btn-primary" value="Создать">
+                            <input type="submit" class="btn btn-primary" value="Создать">
                         </form>
                     </div>
                     </form>
