@@ -10,6 +10,6 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        dd(Post::all());
+        return view('main.index');
     }
 }
