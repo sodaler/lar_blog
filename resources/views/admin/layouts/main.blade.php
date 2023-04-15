@@ -65,6 +65,8 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- bs-custom-file-input -->
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <!-- daterangepicker -->
 <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
 <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
@@ -88,7 +90,10 @@
                 ['height', ['height']]
             ]
         })
-    })
+    });
+    $(function () {
+        bsCustomFileInput.init();
+    });
 </script>
 </body>
 </html>
