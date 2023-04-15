@@ -31,16 +31,13 @@
                             @csrf
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="title" placeholder="Название поста"
-                                value="{{ old('title') }}">
+                                       value="{{ old('title') }}">
                                 @error('title')
                                     <div class="text-danger">Поле необходимо заполнить</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <textarea id="summernote" name="content">{{ old('content') }}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" class="btn btn-primary" value="Создать">
                                 @error('content')
                                     <div class="text-danger">Поле необходимо заполнить</div>
                                 @enderror
@@ -56,6 +53,9 @@
                                         <span class="input-group-text">Загрузить</span>
                                     </div>
                                 </div>
+                                @error('preview_image')
+                                    <div class="text-danger">Поле необходимо заполнить</div>
+                                @enderror
                             </div>
                             <div class="form-group w-50">
                                 <label for="exampleInputFile">Добавить главное изображение</label>
@@ -68,6 +68,22 @@
                                         <span class="input-group-text">Загрузить</span>
                                     </div>
                                 </div>
+                                @error('main_image')
+                                    <div class="text-danger">Поле необходимо заполнить</div>
+                                @enderror
+                            </div>
+                            <div class="form-group w-50">
+                                <label>Выбрать категорию</label>
+                                <select name="category_id" class="form-control">
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}"
+                                        {{ $category->id == old('category_id') ? ' selected' : '' }}
+                                        >{{ $category->title }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary" value="Создать">
                             </div>
                         </form>
                     </div>
@@ -75,8 +91,8 @@
                 </div>
             </div>
             <!-- /.row -->
-    </section>
-    <!-- /.content -->
+        </section>
+        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 @endsection
