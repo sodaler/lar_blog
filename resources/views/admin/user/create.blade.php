@@ -41,19 +41,13 @@
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" name="password" placeholder="Пароль">
-                                @error('password')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
                             <div class="form-group w-50">
                                 <label>Выбрать роль</label>
                                 <select name="role" class="form-control">
-                                    @foreach($roles as $id => $role)
-                                        <option value="{{ $id }}"
-                                            {{ $id == old('role') ? ' selected' : '' }}
-                                        >{{ $role }}</option>
+                                    @foreach($roles as $role)
+                                        <option value="{{ $role->value }}"
+                                            {{ $role->value == old('role') ? ' selected' : '' }}
+                                        >{{ $role->value }}</option>
                                     @endforeach
                                 </select>
                                 @error('role')
