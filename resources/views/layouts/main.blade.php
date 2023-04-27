@@ -26,6 +26,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('main.index') }}">Главная</a>
                     </li>
+                    <li class="nav-item">
+                        @auth()
+                            <a class="nav-link" href="{{ route('personal.main.index') }}">Личный кабинет</a>
+                        @endauth
+                        @guest()
+                            <a class="nav-link" href="{{ route('personal.main.index') }}">Войти</a>
+                        @endguest
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -38,7 +46,7 @@
     <div class="container">
     </div>
 </section>
-<footer class="edica-footer" data-aos="fade-up">
+<footer class="edica-footer mt-5" data-aos="fade-up">
     <div class="container">
         <div class="row footer-widget-area">
             <div class="col-md-3">
