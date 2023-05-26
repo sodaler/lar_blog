@@ -37,6 +37,11 @@
                             <a class="nav-link" href="{{ route('personal.main.index') }}">Войти</a>
                         @endguest
                     </li>
+                    @can('view', auth()->user())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.main.index') }}">Админ панель</a>
+                        </li>
+                    @endcan
                 </ul>
             </div>
         </nav>
