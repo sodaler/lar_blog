@@ -12,6 +12,7 @@ class StoreController extends Controller
     {
         $data = $request->validated();
         StoreUserJob::dispatch($data);
+        session(['alert' => __('Пользователь успешно создан: ') . $data['name']]);
         return redirect()->route('admin.user.index');
     }
 }

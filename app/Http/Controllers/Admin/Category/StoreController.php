@@ -16,6 +16,9 @@ class StoreController extends Controller
         ],[
             'title' => $data['title']
         ]);
+
+        session(['alert' => __('Категория успешно создана: ') . $data['title']]);
+
         return redirect()->route('admin.category.index');
     }
 }

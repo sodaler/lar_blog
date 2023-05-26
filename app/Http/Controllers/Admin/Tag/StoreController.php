@@ -16,6 +16,7 @@ class StoreController extends Controller
         ],[
             'title' => $data['title']
         ]);
+        session(['alert' => __('Тег успешно создан: ') . $data['title']]);
         return redirect()->route('admin.tag.index');
     }
 }

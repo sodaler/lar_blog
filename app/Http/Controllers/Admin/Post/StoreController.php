@@ -12,7 +12,7 @@ class StoreController extends BaseController
     {
         $data = $request->validated();
         $this->service->store($data);
-
+        session(['alert' => __('Пост успешно создан: ') . $data['title']]);
         return redirect()->route('admin.post.index');
     }
 }
