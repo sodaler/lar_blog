@@ -97,6 +97,12 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" value="1" {{ old('is_published') == 1 ? 'checked ' : '' }} name="is_published" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Опубликовать запись
+                                </label>
+                            </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" value="Создать">
                             </div>
