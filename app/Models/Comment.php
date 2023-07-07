@@ -9,8 +9,14 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'post_id',
+        'message',
+    ];
+
     protected $table = 'comments';
-    protected $guarded = false;
 
     public function user()
     {

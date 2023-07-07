@@ -11,7 +11,10 @@ class Tag extends Model
     use HasFactory, SoftDeletes;
 
     protected $table = 'tags';
-    protected $guarded = false;
+
+    protected $fillable = [
+        'title',
+    ];
 
     public function posts()
     {

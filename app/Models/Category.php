@@ -10,8 +10,11 @@ class Category extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = [
+        'title',
+    ];
+
     protected $table = 'categories';
-    protected $guarded = false;
 
     public function posts()
     {

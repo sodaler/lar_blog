@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\QueryBuilders\Post\PostBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,8 +11,16 @@ class Post extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = [
+      'title',
+      'content',
+      'category_id',
+      'preview_image',
+      'main_image',
+      'is_published',
+    ];
+
     protected $table = 'posts';
-    protected $guarded = false;
 
     protected $withCount = ['likedUsers'];
     protected $with = ['category'];
@@ -38,6 +47,11 @@ class Post extends Model
 
     public function scopePublished($query)
     {
-        return $query->where('is_published', 1)->orderBy('created_at', 'desc')->take(2);
+        return $query->where('is_published', 1)->orderBy('created_at', 'desc');
+    }
+
+    public function newEloquentBuilder($query)
+    {
+        return new PostBuilder($query);
     }
 }
