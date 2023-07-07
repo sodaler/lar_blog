@@ -3,6 +3,13 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Factories\CategoryFactory;
+use Database\Factories\CommentFactory;
+use Database\Factories\PostFactory;
+use Database\Factories\PostTagFactory;
+use Database\Factories\PostUserLikeFactory;
+use Database\Factories\TagFactory;
+use Database\Factories\UserFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +19,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        UserFactory::new()->count(10)->create();
+        CategoryFactory::new()->count(20)->create();
+        TagFactory::new()->count(10)->create();
+        PostFactory::new()->count(20)->create();
+        PostTagFactory::new()->count(20)->create();
+        PostUserLikeFactory::new()->count(10)->create();
+        CommentFactory::new()->count(10)->create();
     }
 }
